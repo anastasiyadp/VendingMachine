@@ -2378,14 +2378,17 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0018
 			public const int auto = 2131492888;
 			
+			// aapt resource value: 0x7F010014
+			public const int backButton = 2130771988;
+			
 			// aapt resource value: 0x7F0C0007
 			public const int blocking = 2131492871;
 			
 			// aapt resource value: 0x7F0C001A
 			public const int bottom = 2131492890;
 			
-			// aapt resource value: 0x7F010007
-			public const int button1 = 2130771975;
+			// aapt resource value: 0x7F010013
+			public const int button1 = 2130771987;
 			
 			// aapt resource value: 0x7F0C001B
 			public const int buttonPanel = 2131492891;
@@ -2498,17 +2501,20 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C000F
 			public const int line3 = 2131492879;
 			
+			// aapt resource value: 0x7F010012
+			public const int linearLayout1 = 2130771986;
+			
 			// aapt resource value: 0x7F0C0040
 			public const int listMode = 2131492928;
 			
-			// aapt resource value: 0x7F010003
-			public const int listView1 = 2130771971;
+			// aapt resource value: 0x7F010004
+			public const int listView1 = 2130771972;
 			
-			// aapt resource value: 0x7F010005
-			public const int listView2 = 2130771973;
+			// aapt resource value: 0x7F010006
+			public const int listView2 = 2130771974;
 			
-			// aapt resource value: 0x7F010009
-			public const int listView3 = 2130771977;
+			// aapt resource value: 0x7F010010
+			public const int listView3 = 2130771984;
 			
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
@@ -2528,6 +2534,9 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0046
 			public const int multiply = 2131492934;
 			
+			// aapt resource value: 0x7F010002
+			public const int myview = 2130771970;
+			
 			// aapt resource value: 0x7F0C0047
 			public const int navigation_header_container = 2131492935;
 			
@@ -2545,6 +2554,9 @@ namespace VendingMachine
 			
 			// aapt resource value: 0x7F0C0013
 			public const int notification_main_column_container = 2131492883;
+			
+			// aapt resource value: 0x7F010008
+			public const int OddMonyeButton = 2130771976;
 			
 			// aapt resource value: 0x7F0C004D
 			public const int parallax = 2131492941;
@@ -2633,8 +2645,8 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0069
 			public const int select_dialog_listview = 2131492969;
 			
-			// aapt resource value: 0x7F010010
-			public const int SettingVMButton = 2130771984;
+			// aapt resource value: 0x7F010011
+			public const int SettingVMButton = 2130771985;
 			
 			// aapt resource value: 0x7F0C006A
 			public const int shortcut = 2131492970;
@@ -2678,14 +2690,14 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0077
 			public const int tabMode = 2131492983;
 			
-			// aapt resource value: 0x7F010013
-			public const int Text = 2130771987;
+			// aapt resource value: 0x7F010017
+			public const int Text = 2130771991;
 			
 			// aapt resource value: 0x7F0C0016
 			public const int text = 2131492886;
 			
-			// aapt resource value: 0x7F010011
-			public const int Text1 = 2130771985;
+			// aapt resource value: 0x7F010015
+			public const int Text1 = 2130771989;
 			
 			// aapt resource value: 0x7F0C0017
 			public const int text2 = 2131492887;
@@ -2702,20 +2714,20 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C007B
 			public const int textSpacerNoTitle = 2131492987;
 			
-			// aapt resource value: 0x7F010002
-			public const int textView1 = 2130771970;
+			// aapt resource value: 0x7F010003
+			public const int textView1 = 2130771971;
 			
-			// aapt resource value: 0x7F010004
-			public const int textView2 = 2130771972;
+			// aapt resource value: 0x7F010005
+			public const int textView2 = 2130771973;
 			
-			// aapt resource value: 0x7F010008
-			public const int textView3 = 2130771976;
+			// aapt resource value: 0x7F010009
+			public const int textView3 = 2130771977;
 			
-			// aapt resource value: 0x7F010006
-			public const int textView4 = 2130771974;
+			// aapt resource value: 0x7F010007
+			public const int textView4 = 2130771975;
 			
-			// aapt resource value: 0x7F010012
-			public const int textView5 = 2130771986;
+			// aapt resource value: 0x7F010016
+			public const int textView5 = 2130771990;
 			
 			// aapt resource value: 0x7F0C007C
 			public const int text_input_password_toggle = 2131492988;
@@ -3035,11 +3047,14 @@ namespace VendingMachine
 		public partial class Mipmap
 		{
 			
+			// aapt resource value: 0x7F030004
+			public const int icon_android = 2130903044;
+			
 			// aapt resource value: 0x7F030002
 			public const int ic_launcher = 2130903042;
 			
-			// aapt resource value: 0x7F030004
-			public const int ic_launcher_foreground = 2130903044;
+			// aapt resource value: 0x7F030005
+			public const int ic_launcher_foreground = 2130903045;
 			
 			// aapt resource value: 0x7F030003
 			public const int ic_launcher_round = 2130903043;

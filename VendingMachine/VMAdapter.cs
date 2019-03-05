@@ -41,14 +41,14 @@ namespace VendingMachine
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var drink = drinks[position];
-            string name = drink.name;
+            Drinks drink = drinks[position];
+            string name = drink.Name;
             View view = convertView;
             if (view == null) view = context.LayoutInflater.Inflate(Resource.Layout.drinksRow, null);
 
-            String nameDrink = view.FindViewById<TextView>(Resource.Id.textView1).Text = drink.name;
-            String countDrink = view.FindViewById<TextView>(Resource.Id.textView2).Text = drink.price.ToString();
-            String priceDrink = view.FindViewById<TextView>(Resource.Id.textView3).Text = drink.count.ToString();
+            String nameDrink = view.FindViewById<TextView>(Resource.Id.textView1).Text = drink.Name;
+            String countDrink = view.FindViewById<TextView>(Resource.Id.textView2).Text = drink.Price.ToString();
+            String priceDrink = view.FindViewById<TextView>(Resource.Id.textView3).Text = drink.Count.ToString();
 
             Button drinkButton = view.FindViewById<Button>(Resource.Id.button1);
             drinkButton.Tag = name;
@@ -70,7 +70,7 @@ namespace VendingMachine
                 string name = (string)v.Tag;
                 string text = string.Format(name);
 
-                Toast.MakeText(this.activity, "Вы купили: " + text, ToastLength.Short).Show();
+                Toast.MakeText(this.activity, $"Вы купили: {text}", ToastLength.Short).Show();
             }
         }
 

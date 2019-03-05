@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace VendingMachine.Model
 {
-    class Coins
+    class Coins 
     {
         private int nominal;
         private int count;
@@ -31,8 +31,8 @@ namespace VendingMachine.Model
 
         public Coins(int nominal, int count)
         {
-            this.nominal = nominal;
-            this.count = count;
+            Nominal = nominal;
+            Count = count;
         }
 
         public void SpendMoney()

@@ -38,13 +38,13 @@ namespace VendingMachine.Model
 
         public Drinks(string name, int price, int count)
         {
-            this.name = name;
-            this.price = price;
-            this.count = count;
+            Name = name;
+            Price = price;
+            Count = count;
         }
 
         void BuyDrink() {
-            this.count--;
+            Count--;
         }
 
     }

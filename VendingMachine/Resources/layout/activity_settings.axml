@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+	android:id="@+id/linearLayout1">
 	<TextView
 		android:text="Настройки"
 		android:textSize ="38px"
@@ -10,11 +11,18 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/textView1" />
+
 	<Button
 		android:text="Сохранить"
 		android:layout_gravity = "right"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/button1" />
+	<Button
+		android:text="Вернуться"
+		android:layout_gravity = "right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/backButton" />
 
 </LinearLayout>
