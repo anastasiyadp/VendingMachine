@@ -2,31 +2,41 @@
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
-   android:background="#FFDAFF7F"
+   android:background="#DCDCDC"
    android:padding="8dp">
 
-    <LinearLayout android:id="@+id/Text1"
+    <LinearLayout 
        android:orientation="horizontal"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:paddingLeft="10dip"
-	  >
+       android:paddingLeft="8dip">
 
     <TextView
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:paddingLeft="10dip"
-	android:id="@+id/textView4" />
-
-	<TextView
+		android:textSize="12dp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:paddingLeft="10dip"
-		android:id="@+id/textView5" />
+		android:paddingLeft="8dip"
+		android:id="@+id/textCoinNominal" />
 
+	<TextView
+		android:textSize="12dp"
+		android:text ="р."	
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="3dip" />
 
+	<TextView
+		android:textSize="12dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="15dip"
+		android:id="@+id/textCoinCount" />
+
+	<TextView
+		android:textSize="12dp"
+		android:text ="шт."	
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="3dip" />
     </LinearLayout>
-	
-
-
 </RelativeLayout >

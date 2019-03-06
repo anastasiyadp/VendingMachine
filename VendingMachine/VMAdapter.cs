@@ -46,33 +46,12 @@ namespace VendingMachine
             View view = convertView;
             if (view == null) view = context.LayoutInflater.Inflate(Resource.Layout.drinksRow, null);
 
-            String nameDrink = view.FindViewById<TextView>(Resource.Id.textView1).Text = drink.Name;
-            String countDrink = view.FindViewById<TextView>(Resource.Id.textView2).Text = drink.Price.ToString();
-            String priceDrink = view.FindViewById<TextView>(Resource.Id.textView3).Text = drink.Count.ToString();
-
-            Button drinkButton = view.FindViewById<Button>(Resource.Id.button1);
-            drinkButton.Tag = name;
-            drinkButton.SetOnClickListener(new ButtonClickListener(this.context));
+            String nameDrink = view.FindViewById<TextView>(Resource.Id.textDrinkName).Text = drink.Name;
+            String countDrink = view.FindViewById<TextView>(Resource.Id.textDrinkCount).Text = drink.Price.ToString();
+            String priceDrink = view.FindViewById<TextView>(Resource.Id.textDrinkPrice).Text = drink.Count.ToString();
             return view;
         }
 
-        private class ButtonClickListener : Java.Lang.Object, View.IOnClickListener
-        {
-            private Activity activity;
-
-            public ButtonClickListener(Activity activity)
-            {
-                this.activity = activity;
-            }
-
-            public void OnClick(View v)
-            {
-                string name = (string)v.Tag;
-                string text = string.Format(name);
-
-                Toast.MakeText(this.activity, $"Вы купили: {text}", ToastLength.Short).Show();
-            }
-        }
-
+       
     }
 }

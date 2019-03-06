@@ -2378,20 +2378,26 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0018
 			public const int auto = 2131492888;
 			
-			// aapt resource value: 0x7F010014
-			public const int backButton = 2130771988;
-			
 			// aapt resource value: 0x7F0C0007
 			public const int blocking = 2131492871;
 			
 			// aapt resource value: 0x7F0C001A
 			public const int bottom = 2131492890;
 			
-			// aapt resource value: 0x7F010013
-			public const int button1 = 2130771987;
+			// aapt resource value: 0x7F010012
+			public const int buttonBack = 2130771986;
+			
+			// aapt resource value: 0x7F010006
+			public const int buttonOddMoney = 2130771974;
 			
 			// aapt resource value: 0x7F0C001B
 			public const int buttonPanel = 2131492891;
+			
+			// aapt resource value: 0x7F010011
+			public const int buttonSave = 2130771985;
+			
+			// aapt resource value: 0x7F010008
+			public const int buttonSettingVM = 2130771976;
 			
 			// aapt resource value: 0x7F0C001C
 			public const int cancel_action = 2131492892;
@@ -2501,20 +2507,23 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C000F
 			public const int line3 = 2131492879;
 			
-			// aapt resource value: 0x7F010012
-			public const int linearLayout1 = 2130771986;
+			// aapt resource value: 0x7F010009
+			public const int linearLayout1 = 2130771977;
 			
 			// aapt resource value: 0x7F0C0040
 			public const int listMode = 2131492928;
 			
-			// aapt resource value: 0x7F010004
-			public const int listView1 = 2130771972;
-			
-			// aapt resource value: 0x7F010006
-			public const int listView2 = 2130771974;
-			
 			// aapt resource value: 0x7F010010
-			public const int listView3 = 2130771984;
+			public const int listView = 2130771984;
+			
+			// aapt resource value: 0x7F010004
+			public const int listViewCoins = 2130771972;
+			
+			// aapt resource value: 0x7F010007
+			public const int listViewCoinsVM = 2130771975;
+			
+			// aapt resource value: 0x7F010003
+			public const int listViewDrinks = 2130771971;
 			
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
@@ -2554,9 +2563,6 @@ namespace VendingMachine
 			
 			// aapt resource value: 0x7F0C0013
 			public const int notification_main_column_container = 2131492883;
-			
-			// aapt resource value: 0x7F010008
-			public const int OddMonyeButton = 2130771976;
 			
 			// aapt resource value: 0x7F0C004D
 			public const int parallax = 2131492941;
@@ -2645,9 +2651,6 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0069
 			public const int select_dialog_listview = 2131492969;
 			
-			// aapt resource value: 0x7F010011
-			public const int SettingVMButton = 2130771985;
-			
 			// aapt resource value: 0x7F0C006A
 			public const int shortcut = 2131492970;
 			
@@ -2690,17 +2693,26 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C0077
 			public const int tabMode = 2131492983;
 			
-			// aapt resource value: 0x7F010017
-			public const int Text = 2130771991;
-			
 			// aapt resource value: 0x7F0C0016
 			public const int text = 2131492886;
 			
-			// aapt resource value: 0x7F010015
-			public const int Text1 = 2130771989;
-			
 			// aapt resource value: 0x7F0C0017
 			public const int text2 = 2131492887;
+			
+			// aapt resource value: 0x7F010014
+			public const int textCoinCount = 2130771988;
+			
+			// aapt resource value: 0x7F010013
+			public const int textCoinNominal = 2130771987;
+			
+			// aapt resource value: 0x7F010017
+			public const int textDrinkCount = 2130771991;
+			
+			// aapt resource value: 0x7F010015
+			public const int textDrinkName = 2130771989;
+			
+			// aapt resource value: 0x7F010016
+			public const int textDrinkPrice = 2130771990;
 			
 			// aapt resource value: 0x7F0C007D
 			public const int textinput_counter = 2131492989;
@@ -2714,20 +2726,8 @@ namespace VendingMachine
 			// aapt resource value: 0x7F0C007B
 			public const int textSpacerNoTitle = 2131492987;
 			
-			// aapt resource value: 0x7F010003
-			public const int textView1 = 2130771971;
-			
 			// aapt resource value: 0x7F010005
-			public const int textView2 = 2130771973;
-			
-			// aapt resource value: 0x7F010009
-			public const int textView3 = 2130771977;
-			
-			// aapt resource value: 0x7F010007
-			public const int textView4 = 2130771975;
-			
-			// aapt resource value: 0x7F010016
-			public const int textView5 = 2130771990;
+			public const int textViewSumCoins = 2130771973;
 			
 			// aapt resource value: 0x7F0C007C
 			public const int text_input_password_toggle = 2131492988;

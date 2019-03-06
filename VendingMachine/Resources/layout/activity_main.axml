@@ -1,95 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-	<LinearLayout 
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="vertical"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">	
 	
-		
-		<ScrollView
-        android:id="@+id/myview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >	
-		<LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="#A0A0A0"
-            android:orientation="vertical" >
-
-
-			<TextView
+<ScrollView
+	android:id="@+id/myview"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#A9A9A9">
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="#A9A9A9"
+		android:orientation="vertical">
+		<TextView
 			android:text="Напитки"
-			android:textSize="15dp"
+			android:textSize="16dp"
+			android:textStyle="bold"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="#A9A9A9"
-			android:gravity="center_horizontal"
-			android:id="@+id/textView1"	/>
-
+			android:background="#ADD8E6"
+			android:gravity="center_horizontal"/>
 		<ListView
 			android:layout_width="fill_parent"
 			android:layout_height="130dp"
-			android:id="@+id/listView1" 
+			android:id="@+id/listViewDrinks"
 			android:background="#DCDCDC"
 			android:clickable="true"
 			android:choiceMode="singleChoice" />
-
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="Кошелек"
-			android:textSize="15dp"
-			android:background="#A9A9A9"
-			android:gravity="center_horizontal"
-			android:id="@+id/textView2" />
-	
+			android:textStyle="bold"
+			android:textSize="16dp"
+			android:background="#ADD8E6"
+			android:gravity="center_horizontal" />
 		<ListView
 			android:layout_width="match_parent"
 			android:layout_height="130dp"
-			android:id="@+id/listView2" 
+			android:id="@+id/listViewCoins"
 			android:background="#DCDCDC"
 			android:clickable="true"
 			android:choiceMode="singleChoice" />
-
 		<TextView
 			android:text="Внесено: 0 р."
+			android:textSize="14dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/textView4" />
+			android:id="@+id/textViewSumCoins" />
 		<Button
 			android:text="Сдача"
 			android:textSize = "10dp"
 			android:layout_width="wrap_content"
 			android:layout_height="35dp"
-			android:id="@+id/OddMonyeButton" />
-	
+			android:id="@+id/buttonOddMoney" />
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Кошелек VM"
-			android:textSize="15dp"
-			android:background="#A9A9A9"
 			android:gravity="center_horizontal"
-			android:id="@+id/textView3" />
-
+			android:text="Кошелек VM"
+			android:textStyle="bold"
+			android:textSize="16dp"
+			android:background="#ADD8E6"/>
 		<ListView
-		android:layout_width="match_parent"
-		android:layout_height="145dp"
-		android:id="@+id/listView3" 
-		android:background="#DCDCDC"
-		android:clickable="true"
-		android:choiceMode="singleChoice" />
-
+			android:layout_width="match_parent"
+			android:layout_height="130dp"
+			android:id="@+id/listViewCoinsVM"
+			android:background="#DCDCDC"
+			android:clickable="true"
+			android:choiceMode="singleChoice" />
 		<Button
 			android:text="Настройки"
 			android:textSize = "10dp"
 			android:layout_width="wrap_content"
 			android:layout_height="35dp"
-			android:id="@+id/SettingVMButton"/>
-			 </LinearLayout>
-		</ScrollView>
-
-	</LinearLayout> 
-	
+			android:id="@+id/buttonSettingVM"/>
+	</LinearLayout>
+</ScrollView>

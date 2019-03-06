@@ -2336,23 +2336,11 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080034
 			public const int META = 2131230772;
 			
-			// aapt resource value: 0x7f080090
-			public const int OddMonyeButton = 2131230864;
-			
 			// aapt resource value: 0x7f080035
 			public const int SHIFT = 2131230773;
 			
 			// aapt resource value: 0x7f080036
 			public const int SYM = 2131230774;
-			
-			// aapt resource value: 0x7f080093
-			public const int SettingVMButton = 2131230867;
-			
-			// aapt resource value: 0x7f0800a7
-			public const int Text = 2131230887;
-			
-			// aapt resource value: 0x7f080097
-			public const int Text1 = 2131230871;
 			
 			// aapt resource value: 0x7f0800ab
 			public const int action0 = 2131230891;
@@ -2432,9 +2420,6 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080043
 			public const int auto = 2131230787;
 			
-			// aapt resource value: 0x7f080096
-			public const int backButton = 2131230870;
-			
 			// aapt resource value: 0x7f08002e
 			public const int beginning = 2131230766;
 			
@@ -2444,11 +2429,20 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08003c
 			public const int bottom = 2131230780;
 			
-			// aapt resource value: 0x7f080095
-			public const int button1 = 2131230869;
+			// aapt resource value: 0x7f080094
+			public const int buttonBack = 2131230868;
+			
+			// aapt resource value: 0x7f08008e
+			public const int buttonOddMoney = 2131230862;
 			
 			// aapt resource value: 0x7f080062
 			public const int buttonPanel = 2131230818;
+			
+			// aapt resource value: 0x7f080093
+			public const int buttonSave = 2131230867;
+			
+			// aapt resource value: 0x7f080090
+			public const int buttonSettingVM = 2131230864;
 			
 			// aapt resource value: 0x7f0800ac
 			public const int cancel_action = 2131230892;
@@ -2477,14 +2471,14 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080038
 			public const int collapseActionView = 2131230776;
 			
-			// aapt resource value: 0x7f08009b
-			public const int container = 2131230875;
+			// aapt resource value: 0x7f080099
+			public const int container = 2131230873;
 			
 			// aapt resource value: 0x7f080065
 			public const int contentPanel = 2131230821;
 			
-			// aapt resource value: 0x7f08009c
-			public const int coordinator = 2131230876;
+			// aapt resource value: 0x7f08009a
+			public const int coordinator = 2131230874;
 			
 			// aapt resource value: 0x7f08006c
 			public const int custom = 2131230828;
@@ -2498,20 +2492,20 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08005f
 			public const int default_activity_button = 2131230815;
 			
-			// aapt resource value: 0x7f08009e
-			public const int design_bottom_sheet = 2131230878;
-			
-			// aapt resource value: 0x7f0800a5
-			public const int design_menu_item_action_area = 2131230885;
-			
-			// aapt resource value: 0x7f0800a4
-			public const int design_menu_item_action_area_stub = 2131230884;
+			// aapt resource value: 0x7f08009c
+			public const int design_bottom_sheet = 2131230876;
 			
 			// aapt resource value: 0x7f0800a3
-			public const int design_menu_item_text = 2131230883;
+			public const int design_menu_item_action_area = 2131230883;
 			
 			// aapt resource value: 0x7f0800a2
-			public const int design_navigation_view = 2131230882;
+			public const int design_menu_item_action_area_stub = 2131230882;
+			
+			// aapt resource value: 0x7f0800a1
+			public const int design_menu_item_text = 2131230881;
+			
+			// aapt resource value: 0x7f0800a0
+			public const int design_navigation_view = 2131230880;
 			
 			// aapt resource value: 0x7f08001f
 			public const int disableHome = 2131230751;
@@ -2585,8 +2579,8 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f08009a
-			public const int largeLabel = 2131230874;
+			// aapt resource value: 0x7f080098
+			public const int largeLabel = 2131230872;
 			
 			// aapt resource value: 0x7f080048
 			public const int left = 2131230792;
@@ -2597,20 +2591,23 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080018
 			public const int line3 = 2131230744;
 			
-			// aapt resource value: 0x7f080094
-			public const int linearLayout1 = 2131230868;
+			// aapt resource value: 0x7f080091
+			public const int linearLayout1 = 2131230865;
 			
 			// aapt resource value: 0x7f08001c
 			public const int listMode = 2131230748;
 			
-			// aapt resource value: 0x7f08008c
-			public const int listView1 = 2131230860;
-			
-			// aapt resource value: 0x7f08008e
-			public const int listView2 = 2131230862;
-			
 			// aapt resource value: 0x7f080092
-			public const int listView3 = 2131230866;
+			public const int listView = 2131230866;
+			
+			// aapt resource value: 0x7f08008c
+			public const int listViewCoins = 2131230860;
+			
+			// aapt resource value: 0x7f08008f
+			public const int listViewCoinsVM = 2131230863;
+			
+			// aapt resource value: 0x7f08008b
+			public const int listViewDrinks = 2131230859;
 			
 			// aapt resource value: 0x7f080060
 			public const int list_item = 2131230816;
@@ -2636,8 +2633,8 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08008a
 			public const int myview = 2131230858;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int navigation_header_container = 2131230881;
+			// aapt resource value: 0x7f08009f
+			public const int navigation_header_container = 2131230879;
 			
 			// aapt resource value: 0x7f08003a
 			public const int never = 2131230778;
@@ -2759,14 +2756,14 @@ namespace VendingMachine
 			// aapt resource value: 0x7f080024
 			public const int showTitle = 2131230756;
 			
-			// aapt resource value: 0x7f080099
-			public const int smallLabel = 2131230873;
+			// aapt resource value: 0x7f080097
+			public const int smallLabel = 2131230871;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int snackbar_action = 2131230880;
+			// aapt resource value: 0x7f08009e
+			public const int snackbar_action = 2131230878;
 			
-			// aapt resource value: 0x7f08009f
-			public const int snackbar_text = 2131230879;
+			// aapt resource value: 0x7f08009d
+			public const int snackbar_text = 2131230877;
 			
 			// aapt resource value: 0x7f080042
 			public const int snap = 2131230786;
@@ -2807,29 +2804,32 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08001a
 			public const int text2 = 2131230746;
 			
+			// aapt resource value: 0x7f080096
+			public const int textCoinCount = 2131230870;
+			
+			// aapt resource value: 0x7f080095
+			public const int textCoinNominal = 2131230869;
+			
+			// aapt resource value: 0x7f0800a7
+			public const int textDrinkCount = 2131230887;
+			
+			// aapt resource value: 0x7f0800a5
+			public const int textDrinkName = 2131230885;
+			
+			// aapt resource value: 0x7f0800a6
+			public const int textDrinkPrice = 2131230886;
+			
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoButtons = 2131230825;
 			
 			// aapt resource value: 0x7f080068
 			public const int textSpacerNoTitle = 2131230824;
 			
-			// aapt resource value: 0x7f08008b
-			public const int textView1 = 2131230859;
-			
 			// aapt resource value: 0x7f08008d
-			public const int textView2 = 2131230861;
+			public const int textViewSumCoins = 2131230861;
 			
-			// aapt resource value: 0x7f080091
-			public const int textView3 = 2131230865;
-			
-			// aapt resource value: 0x7f08008f
-			public const int textView4 = 2131230863;
-			
-			// aapt resource value: 0x7f080098
-			public const int textView5 = 2131230872;
-			
-			// aapt resource value: 0x7f0800a6
-			public const int text_input_password_toggle = 2131230886;
+			// aapt resource value: 0x7f0800a4
+			public const int text_input_password_toggle = 2131230884;
 			
 			// aapt resource value: 0x7f080014
 			public const int textinput_counter = 2131230740;
@@ -2855,8 +2855,8 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08006d
 			public const int topPanel = 2131230829;
 			
-			// aapt resource value: 0x7f08009d
-			public const int touch_outside = 2131230877;
+			// aapt resource value: 0x7f08009b
+			public const int touch_outside = 2131230875;
 			
 			// aapt resource value: 0x7f08000f
 			public const int transition_current_scene = 2131230735;

@@ -22,11 +22,13 @@ namespace VendingMachine
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activity_settings);
-            Button button = FindViewById<Button>(Resource.Id.button1);
-            ListView listView = FindViewById<ListView>(Resource.Id.listView1);
+          
             LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-            Button backButton = FindViewById<Button>(Resource.Id.backButton);
+          
+           
+            Button saveButton = FindViewById<Button>(Resource.Id.buttonSave);
+            Button backButton = FindViewById<Button>(Resource.Id.buttonBack);
 
             IList<String> test = Intent.GetStringArrayListExtra("mi");
             IList<String> test2 = Intent.GetStringArrayListExtra("mi2");
@@ -50,32 +52,37 @@ namespace VendingMachine
                     Text = "",
                     Id = i+1000
                 };
+
+
                 text.LayoutParameters = layoutParams;
                 text2.LayoutParameters = layoutParams;
                 editText.LayoutParameters = layoutParams;
+
+
                 linearLayout.AddView(text);
                 linearLayout.AddView(text2);
                 linearLayout.AddView(editText);
             }
 
-            button.Click += (sender, e) =>
+            saveButton.Click += (sender, e) =>
             {
                 for (int i = 0; i < test.Count; i++)
                 {
                     EditText edit = FindViewById<EditText>(i+1000);
                     TextView final = FindViewById<TextView>(i);
                     int x;
-                    if (edit.Text != "") x = int.Parse(final.Text) + int.Parse(edit.Text);
-                    else x = int.Parse(final.Text) + 0;
+                    if (edit.Text != "") x = int.Parse(edit.Text);
+                    else x = int.Parse(final.Text);
                     final.Text = x.ToString();
+                    test2[i] = final.Text;
                     edit.Text = "";
                 }
             };
 
             backButton.Click += (sender, e) => {
-                var intent = new Intent(this, typeof(MainActivity));
-                int put_position = 5;
-                intent.PutExtra("Main_Put_Edit_Position2", put_position);
+                var intent = new Intent();
+                intent.PutStringArrayListExtra("mi3", test);
+                intent.PutStringArrayListExtra("mi4", test2);
                 SetResult(Result.Ok,intent);
                 Finish();             
             };

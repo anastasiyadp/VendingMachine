@@ -43,8 +43,8 @@ namespace VendingMachine
             View view = convertView;
             if (view == null) 
                 view = context.LayoutInflater.Inflate(Resource.Layout.coinsRow, null);
-            String nameCoin = view.FindViewById<TextView>(Resource.Id.textView4).Text = coin.Nominal.ToString();
-            String countCoin = view.FindViewById<TextView>(Resource.Id.textView5).Text = coin.Count.ToString();
+            String nameCoin = view.FindViewById<TextView>(Resource.Id.textCoinNominal).Text = coin.Nominal.ToString();
+            String countCoin = view.FindViewById<TextView>(Resource.Id.textCoinCount).Text = coin.Count.ToString();
 
             return view;
         }

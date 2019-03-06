@@ -8,15 +8,18 @@ using System;
 using Java.Util;
 using System.Collections.Generic;
 using VendingMachine.Model;
+using Android.Views;
 
 namespace VendingMachine
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        List<Drinks> list;
+        List<Drinks> listDrinks;
         static List<Coins> peoplesCoins, VMCoins;
         int allMoney;
+        public static String TAG = "MainActivity";
+        public static int MY_CODE = 123;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,14 +27,14 @@ namespace VendingMachine
             
             SetContentView(Resource.Layout.activity_main);
 
-            Button settingButton = FindViewById<Button>(Resource.Id.SettingVMButton);
-            Button oddMoneyButton = FindViewById<Button>(Resource.Id.OddMonyeButton);
-            ListView listViewDrinks = FindViewById<ListView>(Resource.Id.listView1);
-            ListView listViewCoins = FindViewById<ListView>(Resource.Id.listView2);
-            ListView listViewCoinsVM = FindViewById<ListView>(Resource.Id.listView3);
-            TextView textView = FindViewById<TextView>(Resource.Id.textView4);
+            Button settingButton = FindViewById<Button>(Resource.Id.buttonSettingVM);
+            Button oddMoneyButton = FindViewById<Button>(Resource.Id.buttonOddMoney);
+            ListView listViewDrinks = FindViewById<ListView>(Resource.Id.listViewDrinks);
+            ListView listViewCoins = FindViewById<ListView>(Resource.Id.listViewCoins);
+            ListView listViewCoinsVM = FindViewById<ListView>(Resource.Id.listViewCoinsVM);
+            TextView textView = FindViewById<TextView>(Resource.Id.textViewSumCoins);
 
-            list = new List<Drinks>() {
+            listDrinks = new List<Drinks>() {
                 new Drinks("Чай", 13, 10),
                 new Drinks("Кофе", 18, 30),
                 new Drinks("Кофе с молоком", 21, 20),
@@ -52,13 +55,13 @@ namespace VendingMachine
                new Coins(10, 100)
             };
             
-            listViewDrinks.Adapter = new VMAdapter(this, list);
+            listViewDrinks.Adapter = new VMAdapter(this, listDrinks);
             listViewDrinks.ItemClick += (sender, e) =>
             {
-                Drinks drink = list[e.Position];
+                Drinks drink = listDrinks[e.Position];
                 BuyDrink(drink);
             };
-            
+
             listViewCoins.Adapter = new CoinsAdapter(this, peoplesCoins);
             listViewCoins.ItemClick += (sender, e) => 
             {
@@ -84,7 +87,7 @@ namespace VendingMachine
                 intent.PutStringArrayListExtra("mi",co);
                 intent.PutStringArrayListExtra("mi2",co2);
 
-                StartActivityForResult(intent,0);
+                StartActivityForResult(intent, MY_CODE);
             };
 
             void AllMoney()
@@ -108,7 +111,7 @@ namespace VendingMachine
                 }
             }
 
-            void BuyDrink(Drinks drink)
+             void BuyDrink(Drinks drink)
             {
                 if (drink.Count == 0) Toast.MakeText(this, "Напиток закончился!", Android.Widget.ToastLength.Short).Show();
                 else
@@ -155,11 +158,24 @@ namespace VendingMachine
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if (resultCode == Result.Ok)
+            if (requestCode == MY_CODE)
             {
-                int put_name = data.GetIntExtra("Main_Put_Edit_Position2", 0);
-                VMCoins[1].Count = put_name;
-                //put_name and put_position should now hold the results you want, you can do whatever you want with these two values now in your MainActivity
+                if (resultCode == Result.Ok)
+                {
+                    IList<String> test3 = data.GetStringArrayListExtra("mi3");
+                    IList<String> test4 = data.GetStringArrayListExtra("mi4");
+
+                    List<Coins> testList = new List<Coins>();
+                    for (int i = 0; i < test3.Count; i++)
+                    {
+                        testList.Add(new Coins(Convert.ToInt32(test3[i]), Convert.ToInt32(test4[i])));
+                    }
+
+                    VMCoins=testList;
+                    ListView listViewCoinsVM = FindViewById<ListView>(Resource.Id.listViewCoinsVM);
+                    listViewCoinsVM.Adapter = new CoinsAdapter(this, VMCoins);
+                    ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
+                }
             }
         }
 

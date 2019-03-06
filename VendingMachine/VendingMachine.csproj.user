@@ -3,6 +3,6 @@
   <PropertyGroup>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
-    <SelectedDevice>Oculus Pacific</SelectedDevice>
+    <SelectedDevice>Samsung SM-G935F</SelectedDevice>
   </PropertyGroup>
 </Project>
