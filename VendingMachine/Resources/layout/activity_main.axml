@@ -3,13 +3,13 @@
 <ScrollView
 	android:id="@+id/myview"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:background="#A9A9A9">
 	<LinearLayout
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
 		android:background="#A9A9A9"
 		android:orientation="vertical">
 		<TextView
@@ -21,7 +21,7 @@
 			android:background="#ADD8E6"
 			android:gravity="center_horizontal"/>
 		<ListView
-			android:layout_width="fill_parent"
+			android:layout_width="match_parent"
 			android:layout_height="130dp"
 			android:id="@+id/listViewDrinks"
 			android:background="#DCDCDC"

@@ -16,10 +16,9 @@ namespace VendingMachine
     public class MainActivity : AppCompatActivity
     {
         List<Drinks> listDrinks;
-        static List<Coins> peoplesCoins, VMCoins;
+        List<Coins> listPeoplesCoins, listVMCoins;
         int allMoney;
-        public static String TAG = "MainActivity";
-        public static int MY_CODE = 123;
+        public int MY_CODE = 123;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,14 +40,14 @@ namespace VendingMachine
                 new Drinks("Сок", 35, 15 )
             };
 
-            peoplesCoins = new List<Coins>() {
+            listPeoplesCoins = new List<Coins>() {
                 new Coins(1, 10),
                 new Coins(2, 30),
                 new Coins(5,20),
                 new Coins(10,15) 
             };
 
-            VMCoins = new List<Coins>(){
+            listVMCoins = new List<Coins>(){
                new Coins(1, 100),
                new Coins(2, 100),
                new Coins(5, 100),
@@ -62,14 +61,14 @@ namespace VendingMachine
                 BuyDrink(drink);
             };
 
-            listViewCoins.Adapter = new CoinsAdapter(this, peoplesCoins);
+            listViewCoins.Adapter = new CoinsAdapter(this, listPeoplesCoins);
             listViewCoins.ItemClick += (sender, e) => 
             {
-                Coins coin = peoplesCoins[e.Position];
+                Coins coin = listPeoplesCoins[e.Position];
                 DepositMoney(coin);
             };
 
-            listViewCoinsVM.Adapter = new CoinsAdapter(this, VMCoins);
+            listViewCoinsVM.Adapter = new CoinsAdapter(this, listVMCoins);
 
             oddMoneyButton.Click += (sender, e) =>
             {
@@ -78,14 +77,14 @@ namespace VendingMachine
 
             settingButton.Click += (sender, e) => {
                 var intent = new Intent(this,typeof(SettingVMActivity));
-                List<string> co = new List<string>();
-                List<string> co2 = new List<string>();
-                foreach (var element in VMCoins) {
-                    co.Add(element.Nominal.ToString());
-                    co2.Add(element.Count.ToString());
+                List<string> listCoinNominal = new List<string>();
+                List<string> listCoinCount = new List<string>();
+                foreach (var element in listVMCoins) {
+                    listCoinNominal.Add(element.nominal.ToString());
+                    listCoinCount.Add(element.count.ToString());
                 }
-                intent.PutStringArrayListExtra("mi",co);
-                intent.PutStringArrayListExtra("mi2",co2);
+                intent.PutStringArrayListExtra("CoinNominal", listCoinNominal);
+                intent.PutStringArrayListExtra("CoinCount", listCoinCount);
 
                 StartActivityForResult(intent, MY_CODE);
             };
@@ -97,57 +96,55 @@ namespace VendingMachine
 
             void DepositMoney(Coins coin)
             {
-                if (coin.Count == 0) Toast.MakeText(this, $"Монеты номиналом {coin.Nominal} р. нет!", Android.Widget.ToastLength.Short).Show();
+                String result;
+                if (coin.count == 0) result = $"Монеты номиналом {coin.nominal} р. нет!";
                 else
                 {
                     coin.SpendMoney();
-                    Toast.MakeText(this, $"+ {coin.Nominal.ToString()} р.", Android.Widget.ToastLength.Short).Show();
-                    allMoney += coin.Nominal;
-                    VMCoins.Find(x => x.Nominal.Equals(coin.Nominal)).Count++;
+                    result = $"+ {coin.nominal.ToString()} р.";
+                    allMoney += coin.nominal;
+                    listVMCoins.Find(x => x.nominal.Equals(coin.nominal)).count++;
                     AllMoney();
 
                     ((BaseAdapter)listViewCoins.Adapter).NotifyDataSetChanged();
                     ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
                 }
+                Toast.MakeText(this, result, Android.Widget.ToastLength.Short).Show();
             }
 
              void BuyDrink(Drinks drink)
             {
-                if (drink.Count == 0) Toast.MakeText(this, "Напиток закончился!", Android.Widget.ToastLength.Short).Show();
+                String result;
+                if (drink.count == 0) result = "Напиток закончился!";
                 else
                 {
-                    if (allMoney >= drink.Price)
+                    if (allMoney >= drink.price)
                     {
-                        allMoney -= drink.Price;
-                        drink.Count--;
-                        ((BaseAdapter)listViewDrinks.Adapter).NotifyDataSetChanged();
+                        allMoney -= drink.price;
+                        drink.count--;                        
                         AllMoney();
-                        Toast.MakeText(this, $"Вы купили  { drink.Name}", Android.Widget.ToastLength.Short).Show();
+                        result = $"Вы купили  {drink.name}";
+                        ((BaseAdapter)listViewDrinks.Adapter).NotifyDataSetChanged();
                     }
-                    else Toast.MakeText(this, "Не хватает средств!", Android.Widget.ToastLength.Short).Show();
+                    else result = "Не хватает средств!";
                 }
-
+                Toast.MakeText(this, result, Android.Widget.ToastLength.Short).Show();
             }
 
             void GetOddMoney()
             {
-                int money = allMoney;
-                List<Coins> test = VMCoins;
-                //test.Sort();
-                test.Reverse();
+                listVMCoins.Reverse(); //Подразумевается, что список уже отсортирован
                 
-                foreach(var x in test)
+                foreach(var coin in listVMCoins)
                 {
-                    while(money/x.Nominal >= 1)
+                    while(allMoney / coin.nominal >= 1)
                     {
-                        x.Count--;
-                        money -= x.Nominal;
-                        peoplesCoins.Find(y => y.Nominal.Equals(x.Nominal)).Count++;
+                        coin.count--;
+                        allMoney -= coin.nominal;
+                        listPeoplesCoins.Find(x => x.nominal.Equals(x.nominal)).count++;
                     }
                 }
-                test.Reverse();
-                VMCoins = test;
-                allMoney = money;
+                listVMCoins.Reverse();
                 AllMoney();
                 ((BaseAdapter)listViewCoins.Adapter).NotifyDataSetChanged();
                 ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
@@ -162,18 +159,18 @@ namespace VendingMachine
             {
                 if (resultCode == Result.Ok)
                 {
-                    IList<String> test3 = data.GetStringArrayListExtra("mi3");
-                    IList<String> test4 = data.GetStringArrayListExtra("mi4");
+                    IList<String> listCoinNominal = data.GetStringArrayListExtra("CoinNominal");
+                    IList<String> listCoinCount = data.GetStringArrayListExtra("CoinCount");
 
-                    List<Coins> testList = new List<Coins>();
-                    for (int i = 0; i < test3.Count; i++)
+                    List<Coins> newlistVMCoins = new List<Coins>();
+                    for (int i = 0; i < listCoinNominal.Count; i++)
                     {
-                        testList.Add(new Coins(Convert.ToInt32(test3[i]), Convert.ToInt32(test4[i])));
+                        newlistVMCoins.Add(new Coins(Convert.ToInt32(listCoinNominal[i]), Convert.ToInt32(listCoinCount[i])));
                     }
 
-                    VMCoins=testList;
+                    listVMCoins= newlistVMCoins;
                     ListView listViewCoinsVM = FindViewById<ListView>(Resource.Id.listViewCoinsVM);
-                    listViewCoinsVM.Adapter = new CoinsAdapter(this, VMCoins);
+                    listViewCoinsVM.Adapter = new CoinsAdapter(this, listVMCoins);
                     ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
                 }
             }

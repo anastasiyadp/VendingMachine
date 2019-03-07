@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using VendingMachine.Model;
+using static Android.Widget.GridLayout;
 
 namespace VendingMachine
 {
@@ -23,66 +24,86 @@ namespace VendingMachine
 
             SetContentView(Resource.Layout.activity_settings);
           
-            LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-          
-           
+            //LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
+            GridLayout gridLayout = FindViewById<GridLayout>(Resource.Id.gridLayout1);
+            gridLayout.ColumnCount = 5;
             Button saveButton = FindViewById<Button>(Resource.Id.buttonSave);
             Button backButton = FindViewById<Button>(Resource.Id.buttonBack);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
 
-            IList<String> test = Intent.GetStringArrayListExtra("mi");
-            IList<String> test2 = Intent.GetStringArrayListExtra("mi2");
+            IList<String> listCoinNominal = Intent.GetStringArrayListExtra("CoinNominal");
+            IList<String> listCoinCount = Intent.GetStringArrayListExtra("CoinCount");
 
             List<Coins> test3 = new List<Coins>();
-            for(int i=0; i<test.Count; i++)
+         
+
+           
+            for(int i=0; i< listCoinNominal.Count; i++)
             {
-                test3.Add(new Coins(Convert.ToInt32(test[i]), Convert.ToInt32(test2[i])));
-                TextView text = new TextView(this)
+                test3.Add(new Coins(Convert.ToInt32(listCoinNominal[i]), Convert.ToInt32(listCoinCount[i])));
+                TextView textCoinNominal = new TextView(this)
                 {
-                    Text = test[i]               
+                    Text = listCoinNominal[i]
                 };
-               
-                TextView text2 = new TextView(this)
+                TextView text1 = new TextView(this)
                 {
-                    Text = test2[i],
+                    Text = "р.",
+                };
+                TextView textCoinCount = new TextView(this)
+                {
+                    Text = listCoinCount[i],
                     Id =i
                 };
-                EditText editText = new EditText(this)
+                TextView text2 = new TextView(this)
+                {
+                    Text = "шт."
+                };
+                EditText editTextNewCoinCount = new EditText(this)
                 {
                     Text = "",
                     Id = i+1000
                 };
 
 
-                text.LayoutParameters = layoutParams;
-                text2.LayoutParameters = layoutParams;
-                editText.LayoutParameters = layoutParams;
+                textCoinNominal.LayoutParameters = layoutParams;
+                textCoinCount.LayoutParameters = layoutParams;
+                editTextNewCoinCount.LayoutParameters = layoutParams;
 
+                Spec rowSpec = GridLayout.InvokeSpec(i,1);
+                Spec colSpec1 = GridLayout.InvokeSpec(0,1, GridLayout.Center);
+                Spec colSpec2 = GridLayout.InvokeSpec(1,1,GridLayout.Center);
+                Spec colSpec3 = GridLayout.InvokeSpec(2,1, GridLayout.Center);
+                Spec colSpec4 = GridLayout.InvokeSpec(3,1, GridLayout.Center);
+                Spec colSpec5 = GridLayout.InvokeSpec(4,1, GridLayout.Center);
+                gridLayout.AddView(textCoinNominal, new GridLayout.LayoutParams(rowSpec, colSpec1));
+                gridLayout.AddView(text1, new GridLayout.LayoutParams(rowSpec, colSpec2));
+                gridLayout.AddView(textCoinCount, new GridLayout.LayoutParams(rowSpec, colSpec3));
+                gridLayout.AddView(text2, new GridLayout.LayoutParams(rowSpec, colSpec4));
+                gridLayout.AddView(editTextNewCoinCount, new GridLayout.LayoutParams(rowSpec, colSpec5));
 
-                linearLayout.AddView(text);
-                linearLayout.AddView(text2);
-                linearLayout.AddView(editText);
             }
 
             saveButton.Click += (sender, e) =>
             {
-                for (int i = 0; i < test.Count; i++)
+                for (int i = 0; i < listCoinNominal.Count; i++)
                 {
-                    EditText edit = FindViewById<EditText>(i+1000);
-                    TextView final = FindViewById<TextView>(i);
-                    int x;
-                    if (edit.Text != "") x = int.Parse(edit.Text);
-                    else x = int.Parse(final.Text);
-                    final.Text = x.ToString();
-                    test2[i] = final.Text;
-                    edit.Text = "";
+                    EditText editSettingCoinCount = FindViewById<EditText>(i+1000);
+                    TextView textNewCoinCount = FindViewById<TextView>(i);
+
+                    if (editSettingCoinCount.Text != "")
+                        textNewCoinCount.Text = editSettingCoinCount.Text;
+                    else
+                        textNewCoinCount.Text = textNewCoinCount.Text;
+
+                    listCoinCount[i] = textNewCoinCount.Text;
+                    editSettingCoinCount.Text = "";
                 }
             };
 
             backButton.Click += (sender, e) => {
                 var intent = new Intent();
-                intent.PutStringArrayListExtra("mi3", test);
-                intent.PutStringArrayListExtra("mi4", test2);
+                intent.PutStringArrayListExtra("CoinNominal", listCoinNominal);
+                intent.PutStringArrayListExtra("CoinCount", listCoinCount);
                 SetResult(Result.Ok,intent);
                 Finish();             
             };

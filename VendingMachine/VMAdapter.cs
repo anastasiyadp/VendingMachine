@@ -42,13 +42,13 @@ namespace VendingMachine
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             Drinks drink = drinks[position];
-            string name = drink.Name;
+            string name = drink.name;
             View view = convertView;
             if (view == null) view = context.LayoutInflater.Inflate(Resource.Layout.drinksRow, null);
 
-            String nameDrink = view.FindViewById<TextView>(Resource.Id.textDrinkName).Text = drink.Name;
-            String countDrink = view.FindViewById<TextView>(Resource.Id.textDrinkCount).Text = drink.Price.ToString();
-            String priceDrink = view.FindViewById<TextView>(Resource.Id.textDrinkPrice).Text = drink.Count.ToString();
+            String nameDrink = view.FindViewById<TextView>(Resource.Id.textDrinkName).Text = drink.name;
+            String priceDrink = view.FindViewById<TextView>(Resource.Id.textDrinkPrice).Text = drink.price.ToString();
+            String countDrink = view.FindViewById<TextView>(Resource.Id.textDrinkCount).Text = drink.count.ToString();
             return view;
         }
 

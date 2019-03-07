@@ -14,37 +14,37 @@ namespace VendingMachine.Model
 {
     class Drinks
     {
-        private string name;
-        private int price;
-        private int count;
+        private string _name;
+        private int _price;
+        private int _count;
     
-        public string Name
+        public string name
         {
-            get => name;
-            set => name = value;
+            get => _name;
+            set => _name = value;
         }
 
-        public int Price
+        public int price
         {
-            get => price;
-            set => price = value;
+            get => _price;
+            set => _price = value;
         }
 
-        public int Count
+        public int count
         {
-            get => count;
-            set => count = value;
+            get => _count;
+            set => _count = value;
         }
 
         public Drinks(string name, int price, int count)
         {
-            Name = name;
-            Price = price;
-            Count = count;
+            this.name = name;
+            this.price = price;
+            this.count = count;
         }
 
-        void BuyDrink() {
-            Count--;
+        public void BuyDrink() {
+            count--;
         }
 
     }

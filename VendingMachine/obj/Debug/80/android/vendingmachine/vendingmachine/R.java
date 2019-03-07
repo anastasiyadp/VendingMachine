@@ -3019,6 +3019,7 @@ containing a value of this type.
         public static final int fixed=0x7f080053;
         public static final int forever=0x7f080057;
         public static final int ghost_view=0x7f08000a;
+        public static final int gridLayout1=0x7f080092;
         public static final int home=0x7f080005;
         public static final int homeAsUp=0x7f080020;
         public static final int icon=0x7f080061;
@@ -3034,7 +3035,6 @@ containing a value of this type.
         public static final int line3=0x7f080018;
         public static final int linearLayout1=0x7f080091;
         public static final int listMode=0x7f08001c;
-        public static final int listView=0x7f080092;
         public static final int listViewCoins=0x7f08008c;
         public static final int listViewCoinsVM=0x7f08008f;
         public static final int listViewDrinks=0x7f08008b;

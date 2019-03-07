@@ -14,31 +14,30 @@ namespace VendingMachine.Model
 {
     class Coins 
     {
-        private int nominal;
-        private int count;
+        private int _nominal;
+        private int _count;
 
-        public int Nominal
+        public int nominal
         {
-            get => nominal;
-            set => nominal = value;
+            get => _nominal;
+            set => _nominal = value;
         }
 
-        public int Count
+        public int count
         {
-            get => count;
-            set => count = value;
+            get => _count;
+            set => _count = value;
         }
 
         public Coins(int nominal, int count)
         {
-            Nominal = nominal;
-            Count = count;
+            this.nominal = nominal;
+            this.count = count;
         }
 
         public void SpendMoney()
         {
-            this.count--;
-            
+            count--;
         }
     }
 }

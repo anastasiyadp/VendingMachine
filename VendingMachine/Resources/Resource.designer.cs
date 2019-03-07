@@ -2552,6 +2552,9 @@ namespace VendingMachine
 			// aapt resource value: 0x7f08000a
 			public const int ghost_view = 2131230730;
 			
+			// aapt resource value: 0x7f080092
+			public const int gridLayout1 = 2131230866;
+			
 			// aapt resource value: 0x7f080005
 			public const int home = 2131230725;
 			
@@ -2596,9 +2599,6 @@ namespace VendingMachine
 			
 			// aapt resource value: 0x7f08001c
 			public const int listMode = 2131230748;
-			
-			// aapt resource value: 0x7f080092
-			public const int listView = 2131230866;
 			
 			// aapt resource value: 0x7f08008c
 			public const int listViewCoins = 2131230860;
