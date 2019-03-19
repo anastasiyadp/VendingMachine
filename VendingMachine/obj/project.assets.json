@@ -474,20 +474,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Анастасия\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Анастасия\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
       "projectName": "VendingMachine",
-      "projectPath": "C:\\Users\\Анастасия\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
-      "packagesPath": "C:\\Users\\Анастасия\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Анастасия\\source\\repos\\VendingMachine\\VendingMachine\\obj\\",
+      "projectPath": "C:\\Users\\User\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\VendingMachine\\VendingMachine\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Анастасия\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

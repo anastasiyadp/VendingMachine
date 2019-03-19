@@ -16,7 +16,7 @@ namespace VendingMachine
     public class MainActivity : AppCompatActivity
     {
         List<Drinks> listDrinks;
-        List<Coins> listPeoplesCoins, listVMCoins;
+        List<Coins> listPeoplesCoins, listVMCoins, listCoins;
         int allMoney;
         public int MY_CODE = 123;
 
@@ -72,7 +72,12 @@ namespace VendingMachine
 
             oddMoneyButton.Click += (sender, e) =>
             {
-                GetOddMoney();
+                if (allMoney == 0) Toast.MakeText(this, "Внесенных средств нет!", Android.Widget.ToastLength.Short).Show();
+                else
+                {
+                    listVMCoins.Reverse();
+                    GetOddMoney(listVMCoins);
+                }
             };
 
             settingButton.Click += (sender, e) => {
@@ -131,25 +136,95 @@ namespace VendingMachine
                 Toast.MakeText(this, result, Android.Widget.ToastLength.Short).Show();
             }
 
-            void GetOddMoney()
-            {
-                listVMCoins.Reverse(); //Подразумевается, что список уже отсортирован
+            //void GetOddMoney()
+            //{
+            //    listVMCoins.Reverse(); //Подразумевается, что список уже отсортирован
                 
-                foreach(var coin in listVMCoins)
+            //    foreach(var coin in listVMCoins)
+            //    {
+            //        while(allMoney / coin.nominal >= 1)
+            //        {
+            //            coin.count--;
+            //            allMoney -= coin.nominal;
+            //            listPeoplesCoins.Find(x => x.nominal.Equals(x.nominal)).count++;
+            //        }
+            //    }
+            //    listVMCoins.Reverse();
+            //    AllMoney();
+            //    ((BaseAdapter)listViewCoins.Adapter).NotifyDataSetChanged();
+            //    ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
+            //}
+
+
+            void GetOddMoney(List<Coins> listMachine)
+            {
+                List<Coins> changeListPeopleCoins = new List<Coins>();
+                List<Coins> changeListVMCoins = new List<Coins>();
+                List<Coins> newListVMCoins = new List<Coins>();
+                int sum = allMoney;
+                //listMachine.Reverse(); //Подразумевается, что список уже отсортирован
+
+
+                listPeoplesCoins.ForEach((item) =>
                 {
-                    while(allMoney / coin.nominal >= 1)
+                    changeListPeopleCoins.Add(item.DeepCopy());
+                });
+
+                listMachine.ForEach((item) =>
+                {
+                    changeListVMCoins.Add(item.DeepCopy());
+                });
+
+                listVMCoins.ForEach((item) =>
+                {
+                    newListVMCoins.Add(item.DeepCopy());
+                });
+
+                foreach (var coin in changeListVMCoins)
+                {
+                    if (coin.count != 0)
                     {
-                        coin.count--;
-                        allMoney -= coin.nominal;
-                        listPeoplesCoins.Find(x => x.nominal.Equals(x.nominal)).count++;
+                        while (sum / coin.nominal >= 1)
+                        {
+                            newListVMCoins.Find(x => x.nominal.Equals(coin.nominal)).count--;
+                            sum -= coin.nominal;
+                            changeListPeopleCoins.Find(x => x.nominal.Equals(coin.nominal)).count++;
+                        }
                     }
                 }
-                listVMCoins.Reverse();
-                AllMoney();
-                ((BaseAdapter)listViewCoins.Adapter).NotifyDataSetChanged();
-                ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
-            }
+                if (sum != 0 && changeListVMCoins.Count != 1)
+                {
+                    changeListVMCoins.RemoveAt(0);
+                    GetOddMoney(changeListVMCoins);
+                }
+                else
+                {
+                    if (sum != 0)
+                        Toast.MakeText(this, "Автомат не может выдать сдачу!", Android.Widget.ToastLength.Short).Show();
+                    else
+                    {
+                        allMoney = sum;
+                        AllMoney();
 
+                        listVMCoins.Clear();
+                        newListVMCoins.ForEach((item) =>
+                        {
+                            listVMCoins.Add(item.DeepCopy());
+                        });
+
+                        listPeoplesCoins.Clear();
+                        changeListPeopleCoins.ForEach((item) =>
+                        {
+                            listPeoplesCoins.Add(item.DeepCopy());
+                        });
+
+                        listVMCoins.Reverse();
+
+                        ((BaseAdapter)listViewCoins.Adapter).NotifyDataSetChanged();
+                        ((BaseAdapter)listViewCoinsVM.Adapter).NotifyDataSetChanged();
+                    }
+                }
+            }
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

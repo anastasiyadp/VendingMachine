@@ -39,5 +39,11 @@ namespace VendingMachine.Model
         {
             count--;
         }
+
+        public Coins DeepCopy()
+        {
+            Coins other = (Coins)this.MemberwiseClone();
+            return other;
+        }
     }
 }
